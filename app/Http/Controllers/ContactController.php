@@ -13,7 +13,6 @@ class ContactController extends Controller
             'email' => $request->input('email'),
             'message' => $request->input('message'),
         ];
-
         Mail::raw($data['message'], function ($message) use ($data) {
             $message->to('pedro.ramos@devitm.com')
                     ->subject('Nuevo mensaje de contacto')

@@ -24,8 +24,10 @@ Route::get('/verificar-conexion', function () {
     try {
         DB::connection()->getPdo();
         echo "Conexión exitosa a la base de datos.";
+        return response()->json(['conexion' => 'exitosa']);
     } catch (\Exception $e) {
         die("Error al conectar a la base de datos: " . $e->getMessage());
+        return response()->json(['conexion' => 'fallida']);
     }
 });
 
